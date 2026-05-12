@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fashion Categories</title>
+
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+    }
+
+    /* HEADER */
+
+    header{
+      width:100%;
+      background:#fff;
+      border-bottom:1px solid #eee;
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .navbar{
+      height:85px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 60px;
+    }
+
+    .logo img{
+      width:70px;
+    }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#444;
+      font-weight:600;
+      font-size:14px;
+    }
+
+    .nav-links a.active{
+      color:#000;
+    }
+
+    /* PAGE */
+
+    .category-page{
+      width:100%;
+      padding:90px 8%;
+    }
+
+    .category-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .category-title h1{
+      font-size:54px;
+      margin-bottom:15px;
+    }
+
+    .category-title p{
+      color:#666;
+      font-size:16px;
+    }
+
+    /* TABLE */
+
+    .table-container{
+      background:#fff;
+      border-radius:20px;
+      overflow-x:auto;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:900px;
+    }
+
+    thead{
+      background:#111;
+      color:#fff;
+    }
+
+    th{
+      padding:22px;
+      text-align:left;
+      font-size:15px;
+    }
+
+    td{
+      padding:20px;
+      border-bottom:1px solid #eee;
+      font-size:14px;
+      color:#444;
+    }
+
+    tbody tr:hover{
+      background:#f8f8f8;
+    }
+
+    .status{
+      padding:8px 16px;
+      border-radius:30px;
+      font-size:12px;
+      font-weight:700;
+      display:inline-block;
+    }
+
+    .available{
+      background:#d8f8df;
+      color:#11823b;
+    }
+
+    .limited{
+      background:#fff1cc;
+      color:#b17b00;
+    }
+
+    .sale{
+      background:#ffd9d9;
+      color:#c40000;
+    }
+
+    footer{
+      width:100%;
+      background:#111;
+      color:#fff;
+      text-align:center;
+      padding:25px;
+      margin-top:70px;
+    }
+
+    @media(max-width:768px){
+
+      .navbar{
+        padding:0 20px;
+      }
+
+      .category-title h1{
+        font-size:36px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="navbar">
+
+      <div class="logo">
+
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg">
+
+      </div>
+
+      <ul class="nav-links">
+
+        <li><a href="index.html">HOME</a></li>
+
+        <li><a href="category.html" class="active">CATEGORY</a></li>
+
+      </ul>
+
+    </div>
+
+  </header>
+
+  <!-- CATEGORY PAGE -->
+
+  <section class="category-page">
+
+    <div class="category-title">
+
+      <h1>Fashion Categories</h1>
+
+      <p>
+        Explore all premium H&M fashion collections with details.
+      </p>
+
+    </div>
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Category</th>
+            <th>Products</th>
+            <th>Collection</th>
+            <th>Price Range</th>
+            <th>Status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr>
+
+            <td>Men Fashion</td>
+
+            <td>T-Shirts, Jeans, Jackets</td>
+
+            <td>Summer 2026</td>
+
+            <td>₹999 - ₹4999</td>
+
+            <td>
+              <span class="status available">Available</span>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Ladies Fashion</td>
+
+            <td>Dresses, Tops, Skirts</td>
+
+            <td>Premium Collection</td>
+
+            <td>₹1299 - ₹6999</td>
+
+            <td>
+              <span class="status available">Available</span>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Kids Wear</td>
+
+            <td>Hoodies, Shorts, Shirts</td>
+
+            <td>Kids Trend</td>
+
+            <td>₹799 - ₹2999</td>
+
+            <td>
+              <span class="status limited">Limited</span>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Sports Wear</td>
+
+            <td>Track Pants, Gym Wear</td>
+
+            <td>Sport Active</td>
+
+            <td>₹1499 - ₹5999</td>
+
+            <td>
+              <span class="status available">Available</span>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Beauty Products</td>
+
+            <td>Perfumes, Creams</td>
+
+            <td>Beauty Essentials</td>
+
+            <td>₹499 - ₹2499</td>
+
+            <td>
+              <span class="status sale">On Sale</span>
+            </td>
+
+          </tr>
+
+          <tr>
+
+            <td>Accessories</td>
+
+            <td>Bags, Caps, Watches</td>
+
+            <td>Luxury Accessories</td>
+
+            <td>₹999 - ₹8999</td>
+
+            <td>
+              <span class="status available">Available</span>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 H&M Fashion Clone | All Rights Reserved
+
+  </footer>
+
+</body>
+</html>
