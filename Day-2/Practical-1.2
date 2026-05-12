@@ -1,0 +1,786 @@
+<!-- ========================= index.html ========================= -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>H&M Clone</title>
+
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
+
+    body{
+      background:#fff;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* ================= TOP BAR ================= */
+
+    .top-bar{
+      width:100%;
+      background:#111;
+      color:#fff;
+      text-align:center;
+      padding:12px;
+      font-size:13px;
+      letter-spacing:1px;
+      font-weight:500;
+    }
+
+    /* ================= HEADER ================= */
+
+    header{
+      width:100%;
+      background:#fff;
+      position:sticky;
+      top:0;
+      z-index:999;
+      border-bottom:1px solid #eee;
+    }
+
+    .navbar{
+      width:100%;
+      height:85px;
+      padding:0 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .left-side{
+      display:flex;
+      align-items:center;
+      gap:60px;
+    }
+
+    .logo img{
+      width:70px;
+      cursor:pointer;
+    }
+
+    .nav-links{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#444;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:0.5px;
+      transition:0.3s;
+      position:relative;
+    }
+
+    .nav-links a:hover{
+      color:#000;
+    }
+
+    .nav-links a.active{
+      color:#000;
+    }
+
+    .nav-links a.active::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-10px;
+      width:100%;
+      height:2px;
+      background:#000;
+    }
+
+    .right-side{
+      display:flex;
+      align-items:center;
+      gap:22px;
+    }
+
+    .search-box{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      border-bottom:1px solid #ccc;
+      padding-bottom:5px;
+    }
+
+    .search-box input{
+      border:none;
+      outline:none;
+      width:120px;
+      background:transparent;
+      font-size:14px;
+    }
+
+    .icon-box{
+      font-size:20px;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .icon-box:hover{
+      transform:translateY(-2px);
+    }
+
+    .menu-btn{
+      display:none;
+      font-size:24px;
+      cursor:pointer;
+    }
+
+    /* ================= HERO SLIDER ================= */
+
+    .hero-slider{
+      width:100%;
+      height:92vh;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .slide{
+      position:absolute;
+      width:100%;
+      height:100%;
+      opacity:0;
+      transition:1s ease;
+    }
+
+    .slide.active{
+      opacity:1;
+      z-index:2;
+    }
+
+    .slide img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to right,
+      rgba(0,0,0,0.6),
+      rgba(0,0,0,0.15));
+    }
+
+    .slide-content{
+      position:absolute;
+      top:50%;
+      left:8%;
+      transform:translateY(-50%);
+      color:#fff;
+      z-index:5;
+      max-width:620px;
+    }
+
+    .slide-content h1{
+      font-size:78px;
+      line-height:1;
+      margin-bottom:25px;
+      font-weight:800;
+      letter-spacing:-2px;
+    }
+
+    .slide-content p{
+      font-size:18px;
+      line-height:1.7;
+      margin-bottom:35px;
+    }
+
+    .slide-content button{
+      padding:16px 38px;
+      border:none;
+      background:#fff;
+      color:#000;
+      font-size:13px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s;
+      letter-spacing:1px;
+    }
+
+    .slide-content button:hover{
+      background:#000;
+      color:#fff;
+    }
+
+    /* BUTTONS */
+
+    .prev-btn,
+    .next-btn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      width:55px;
+      height:55px;
+      border:none;
+      border-radius:50%;
+      background:rgba(255,255,255,0.8);
+      font-size:18px;
+      cursor:pointer;
+      z-index:20;
+    }
+
+    .prev-btn{
+      left:25px;
+    }
+
+    .next-btn{
+      right:25px;
+    }
+
+    /* DOTS */
+
+    .dots{
+      position:absolute;
+      bottom:30px;
+      width:100%;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      z-index:50;
+    }
+
+    .dot{
+      width:12px;
+      height:12px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.5);
+      cursor:pointer;
+    }
+
+    .dot.active{
+      background:#fff;
+      transform:scale(1.2);
+    }
+
+    /* ================= COLLECTION SECTION ================= */
+
+    .collection{
+      width:100%;
+      padding:90px 8%;
+    }
+
+    .collection-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .collection-title h2{
+      font-size:48px;
+      margin-bottom:15px;
+    }
+
+    .collection-title p{
+      color:#666;
+      font-size:16px;
+    }
+
+    .collection-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .collection-card{
+      overflow:hidden;
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      transition:0.4s;
+    }
+
+    .collection-card:hover{
+      transform:translateY(-10px);
+    }
+
+    .collection-card img{
+      width:100%;
+      height:400px;
+      object-fit:cover;
+    }
+
+    .collection-content{
+      padding:25px;
+    }
+
+    .collection-content h3{
+      margin-bottom:12px;
+      font-size:22px;
+    }
+
+    .collection-content p{
+      color:#666;
+      line-height:1.7;
+      margin-bottom:20px;
+    }
+
+    .collection-content a{
+      text-decoration:none;
+      color:#000;
+      font-weight:700;
+      letter-spacing:1px;
+    }
+
+    /* ================= FOOTER ================= */
+
+    footer{
+      width:100%;
+      background:#111;
+      color:#fff;
+      text-align:center;
+      padding:25px;
+      font-size:14px;
+      margin-top:80px;
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:992px){
+
+      .navbar{
+        padding:0 25px;
+      }
+
+      .slide-content h1{
+        font-size:56px;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .navbar{
+        height:75px;
+      }
+
+      .menu-btn{
+        display:block;
+      }
+
+      .nav-links{
+        position:absolute;
+        top:75px;
+        left:-100%;
+        width:100%;
+        background:#fff;
+        flex-direction:column;
+        padding:30px;
+        gap:25px;
+        transition:0.4s;
+      }
+
+      .nav-links.active{
+        left:0;
+      }
+
+      .search-box{
+        display:none;
+      }
+
+      .hero-slider{
+        height:75vh;
+      }
+
+      .slide-content{
+        left:7%;
+      }
+
+      .slide-content h1{
+        font-size:42px;
+      }
+
+      .slide-content p{
+        font-size:15px;
+      }
+    }
+
+    @media(max-width:480px){
+
+      .hero-slider{
+        height:65vh;
+      }
+
+      .slide-content h1{
+        font-size:30px;
+      }
+
+      .slide-content p{
+        font-size:13px;
+      }
+
+      .slide-content button{
+        padding:12px 22px;
+        font-size:11px;
+      }
+
+      .logo img{
+        width:55px;
+      }
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+
+  <div class="top-bar">
+    FREE SHIPPING ON ORDERS ABOVE ₹1999
+  </div>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="navbar">
+
+      <div class="left-side">
+
+        <div class="logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg">
+        </div>
+
+        <ul class="nav-links">
+
+          <li><a href="index.html" class="active">HOME</a></li>
+
+          <li><a href="category.html">CATEGORY</a></li>
+
+          <li><a href="#">MEN</a></li>
+
+          <li><a href="#">LADIES</a></li>
+
+          <li><a href="#">KIDS</a></li>
+
+          <li><a href="#">SPORT</a></li>
+
+          <li><a href="#">SALE</a></li>
+
+        </ul>
+
+      </div>
+
+      <div class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+
+      <div class="right-side">
+
+        <div class="search-box">
+
+          <i class="fa-solid fa-magnifying-glass"></i>
+
+          <input type="text" placeholder="Search">
+
+        </div>
+
+        <div class="icon-box">
+          <i class="fa-regular fa-user"></i>
+        </div>
+
+        <div class="icon-box">
+          <i class="fa-regular fa-heart"></i>
+        </div>
+
+        <div class="icon-box">
+          <i class="fa-solid fa-bag-shopping"></i>
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero-slider">
+
+    <div class="slide active">
+
+      <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1600&auto=format&fit=crop">
+
+      <div class="overlay"></div>
+
+      <div class="slide-content">
+
+        <h1>NEW SEASON FASHION</h1>
+
+        <p>
+          Discover premium collections inspired by modern trends and timeless fashion.
+        </p>
+
+        <button>SHOP NOW</button>
+
+      </div>
+
+    </div>
+
+    <div class="slide">
+
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1600&auto=format&fit=crop">
+
+      <div class="overlay"></div>
+
+      <div class="slide-content">
+
+        <h1>MODERN STREET STYLE</h1>
+
+        <p>
+          Minimal and bold designs crafted for premium fashion lovers.
+        </p>
+
+        <button>EXPLORE</button>
+
+      </div>
+
+    </div>
+
+    <div class="slide">
+
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1600&auto=format&fit=crop">
+
+      <div class="overlay"></div>
+
+      <div class="slide-content">
+
+        <h1>LIMITED COLLECTION</h1>
+
+        <p>
+          Elevate your wardrobe with iconic new arrivals and premium essentials.
+        </p>
+
+        <button>VIEW COLLECTION</button>
+
+      </div>
+
+    </div>
+
+    <!-- BUTTONS -->
+
+    <button class="prev-btn">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+
+    <button class="next-btn">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+
+    <!-- DOTS -->
+
+    <div class="dots">
+
+      <span class="dot active"></span>
+
+      <span class="dot"></span>
+
+      <span class="dot"></span>
+
+    </div>
+
+  </section>
+
+  <!-- COLLECTION SECTION -->
+
+  <section class="collection">
+
+    <div class="collection-title">
+
+      <h2>Trending Collections</h2>
+
+      <p>
+        Explore premium fashion inspired by H&M modern aesthetics.
+      </p>
+
+    </div>
+
+    <div class="collection-grid">
+
+      <div class="collection-card">
+
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="collection-content">
+
+          <h3>Women Collection</h3>
+
+          <p>
+            Elegant and premium outfits crafted for modern fashion lovers.
+          </p>
+
+          <a href="category.html">VIEW CATEGORY</a>
+
+        </div>
+
+      </div>
+
+      <div class="collection-card">
+
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="collection-content">
+
+          <h3>Men Collection</h3>
+
+          <p>
+            Smart casual styles with timeless fashion and premium quality.
+          </p>
+
+          <a href="category.html">VIEW CATEGORY</a>
+
+        </div>
+
+      </div>
+
+      <div class="collection-card">
+
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=1200&auto=format&fit=crop">
+
+        <div class="collection-content">
+
+          <h3>Luxury Fashion</h3>
+
+          <p>
+            Premium designs inspired by latest global fashion trends.
+          </p>
+
+          <a href="category.html">VIEW CATEGORY</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+    © 2026 H&M Fashion Clone | Designed with Modern UI
+  </footer>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const slides = document.querySelectorAll(".slide");
+
+    const dots = document.querySelectorAll(".dot");
+
+    const nextBtn = document.querySelector(".next-btn");
+
+    const prevBtn = document.querySelector(".prev-btn");
+
+    let currentSlide = 0;
+
+    function showSlide(index){
+
+      slides.forEach((slide)=>{
+        slide.classList.remove("active");
+      });
+
+      dots.forEach((dot)=>{
+        dot.classList.remove("active");
+      });
+
+      slides[index].classList.add("active");
+
+      dots[index].classList.add("active");
+    }
+
+    nextBtn.addEventListener("click", ()=>{
+
+      currentSlide++;
+
+      if(currentSlide >= slides.length){
+        currentSlide = 0;
+      }
+
+      showSlide(currentSlide);
+
+    });
+
+    prevBtn.addEventListener("click", ()=>{
+
+      currentSlide--;
+
+      if(currentSlide < 0){
+        currentSlide = slides.length - 1;
+      }
+
+      showSlide(currentSlide);
+
+    });
+
+    dots.forEach((dot,index)=>{
+
+      dot.addEventListener("click", ()=>{
+
+        currentSlide = index;
+
+        showSlide(currentSlide);
+
+      });
+
+    });
+
+    setInterval(()=>{
+
+      currentSlide++;
+
+      if(currentSlide >= slides.length){
+        currentSlide = 0;
+      }
+
+      showSlide(currentSlide);
+
+    },5000);
+
+    // MOBILE MENU
+
+    const menuBtn = document.querySelector(".menu-btn");
+
+    const navLinks = document.querySelector(".nav-links");
+
+    menuBtn.addEventListener("click", ()=>{
+
+      navLinks.classList.toggle("active");
+
+    });
+
+  </script>
+
+</body>
+</html>
