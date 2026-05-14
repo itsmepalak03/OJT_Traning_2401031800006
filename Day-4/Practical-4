@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CSS Types Example</title>
+
+  <!-- EXTERNAL CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- INTERNAL CSS -->
+  <style>
+
+    body{
+      background-color:#f5f5f5;
+      font-family:Arial,sans-serif;
+      margin:0;
+      padding:0;
+    }
+
+    h1{
+      color:darkblue;
+      text-align:center;
+      margin-top:20px;
+    }
+
+    .box{
+      width:300px;
+      margin:30px auto;
+      padding:20px;
+      background:rgb(230, 199, 199);
+      border-radius:10px;
+      box-shadow:0 0 10px rgba(0,0,0,0.2);
+      text-align:center;
+    }
+
+    p{
+      color:#444;
+      font-size:18px;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1>Css Types</h1>
+
+  <div class="box">
+
+    <!-- INLINE CSS -->
+    <h2 style="color:red; font-size:30px;">
+      Welcome
+    </h2>
+
+    <p>
+      This program demonstrates all three types of CSS.
+    </p>
+
+    <!-- INLINE CSS -->
+    <button style="
+      background:black;
+      color:white;
+      border:none;
+      padding:12px 25px;
+      border-radius:5px;
+      cursor:pointer;
+    ">
+      Click Me
+    </button>
+
+  </div>
+
+</body>
+
+</html>
