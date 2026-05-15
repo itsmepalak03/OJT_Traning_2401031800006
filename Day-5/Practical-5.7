@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About Us | H&M Clone</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
+
+body{
+  background:#fff;
+  color:#111;
+  overflow-x:hidden;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+a{
+  text-decoration:none;
+}
+
+/* ================= TOP BAR ================= */
+
+.top-bar{
+  width:100%;
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:12px;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  width:100%;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:999;
+  border-bottom:1px solid #eee;
+}
+
+.navbar{
+  width:100%;
+  height:85px;
+  padding:0 70px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.left-side{
+  display:flex;
+  align-items:center;
+  gap:60px;
+}
+
+.logo img{
+  width:70px;
+}
+
+.nav-links{
+  display:flex;
+  list-style:none;
+  gap:30px;
+}
+
+.nav-links a{
+  color:#444;
+  font-size:14px;
+  font-weight:600;
+  transition:0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+  color:#000;
+}
+
+.right-side{
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+.icon-box{
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.about-hero{
+  width:100%;
+  height:70vh;
+  position:relative;
+  overflow:hidden;
+}
+
+.about-hero img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+
+.hero-content{
+  position:absolute;
+  top:50%;
+  left:8%;
+  transform:translateY(-50%);
+  color:#fff;
+  max-width:700px;
+}
+
+.hero-content h1{
+  font-size:72px;
+  margin-bottom:25px;
+  font-weight:800;
+}
+
+.hero-content p{
+  font-size:18px;
+  line-height:1.8;
+}
+
+/* ================= SECTION COMMON ================= */
+
+.section{
+  width:100%;
+  padding:90px 8%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-title h2{
+  font-size:48px;
+  margin-bottom:15px;
+}
+
+.section-title p{
+  color:#666;
+  font-size:16px;
+}
+
+/* ================= ABOUT ================= */
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.about-image img{
+  width:100%;
+  border-radius:20px;
+}
+
+.about-content h3{
+  font-size:42px;
+  margin-bottom:25px;
+}
+
+.about-content p{
+  color:#555;
+  line-height:2;
+  margin-bottom:20px;
+  font-size:15px;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+  background:#111;
+  color:#fff;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+
+.stat-card{
+  text-align:center;
+  padding:40px 20px;
+}
+
+.stat-card h2{
+  font-size:52px;
+  margin-bottom:10px;
+}
+
+.stat-card p{
+  color:#ddd;
+}
+
+/* ================= FEATURES ================= */
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.feature-card{
+  background:#f7f7f7;
+  padding:40px 25px;
+  border-radius:18px;
+  text-align:center;
+  transition:0.4s;
+}
+
+.feature-card:hover{
+  transform:translateY(-8px);
+}
+
+.feature-card i{
+  font-size:40px;
+  margin-bottom:20px;
+}
+
+.feature-card h3{
+  margin-bottom:15px;
+}
+
+.feature-card p{
+  color:#666;
+  line-height:1.8;
+  font-size:14px;
+}
+
+/* ================= FAQ ================= */
+
+.faq-container{
+  max-width:900px;
+  margin:auto;
+}
+
+.faq{
+  border-bottom:1px solid #eee;
+  padding:22px 0;
+  cursor:pointer;
+}
+
+.faq-question{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:18px;
+  font-weight:700;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:0.4s;
+  color:#666;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.faq.active .faq-answer{
+  max-height:300px;
+  padding-top:15px;
+}
+
+/* ================= FEEDBACK ================= */
+
+.feedback-wrapper{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+}
+
+.feedback-box{
+  background:#f8f8f8;
+  padding:45px;
+  border-radius:20px;
+}
+
+.feedback-box h3{
+  font-size:32px;
+  margin-bottom:20px;
+}
+
+.feedback-box p{
+  color:#666;
+  line-height:1.8;
+  margin-bottom:25px;
+}
+
+.feedback-form input,
+.feedback-form textarea{
+  width:100%;
+  padding:16px;
+  border:1px solid #ddd;
+  margin-bottom:18px;
+  border-radius:10px;
+  outline:none;
+  font-size:14px;
+}
+
+.feedback-form textarea{
+  resize:none;
+  height:150px;
+}
+
+.feedback-form button{
+  width:100%;
+  padding:16px;
+  border:none;
+  background:#111;
+  color:#fff;
+  font-weight:700;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.feedback-form button:hover{
+  background:#000;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.contact-card{
+  background:#f7f7f7;
+  padding:40px 25px;
+  border-radius:18px;
+  text-align:center;
+}
+
+.contact-card i{
+  font-size:35px;
+  margin-bottom:20px;
+}
+
+.contact-card h3{
+  margin-bottom:15px;
+}
+
+.contact-card p{
+  color:#666;
+  line-height:1.8;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:40px 20px;
+}
+
+footer p{
+  color:#ccc;
+  margin-top:10px;
+  line-height:1.8;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:992px){
+
+  .about-grid,
+  .feedback-wrapper{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .navbar{
+    padding:0 20px;
+  }
+
+  .nav-links{
+    display:none;
+  }
+
+  .hero-content h1{
+    font-size:46px;
+  }
+
+  .section-title h2{
+    font-size:36px;
+  }
+
+  .about-content h3{
+    font-size:32px;
+  }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+
+<div class="top-bar">
+  FREE SHIPPING ON ORDERS ABOVE ₹1999
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+  <div class="navbar">
+
+    <div class="left-side">
+
+      <div class="logo">
+
+        <a href="index.html">
+
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg">
+
+        </a>
+
+      </div>
+
+      <ul class="nav-links">
+
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="mens.html">MEN</a></li>
+        <li><a href="ladies.html">LADIES</a></li>
+        <li><a href="kids.html">KIDS</a></li>
+        <li><a href="sports.html">SPORTS</a></li>
+        <li><a href="accessories.html">ACCESSORIES</a></li>
+        <li><a href="about.html" class="active">ABOUT</a></li>
+
+      </ul>
+
+    </div>
+
+    <div class="right-side">
+
+      <div class="icon-box">
+        <i class="fa-regular fa-heart"></i>
+      </div>
+
+      <div class="icon-box">
+        <i class="fa-solid fa-bag-shopping"></i>
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="about-hero">
+
+  <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1600">
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+
+    <h1>About Our Fashion Store</h1>
+
+    <p>
+      Discover modern fashion inspired by global trends, premium quality,
+      and timeless aesthetics crafted for every generation.
+    </p>
+
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="section">
+
+  <div class="about-grid">
+
+    <div class="about-image">
+
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?q=80&w=1200">
+
+    </div>
+
+    <div class="about-content">
+
+      <h3>Who We Are</h3>
+
+      <p>
+        Our H&M inspired fashion website delivers premium collections for men,
+        women, kids, sportswear and accessories with elegant modern styling.
+      </p>
+
+      <p>
+        We focus on high quality fashion, affordable pricing, premium shopping
+        experience and customer satisfaction with easy navigation and secure shopping.
+      </p>
+
+      <p>
+        Our mission is to make global fashion trends accessible to everyone
+        while maintaining comfort, quality and sustainability.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="section stats">
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+
+      <h2>1M+</h2>
+
+      <p>Happy Customers</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>500+</h2>
+
+      <p>Fashion Products</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>120+</h2>
+
+      <p>Worldwide Stores</p>
+
+    </div>
+
+    <div class="stat-card">
+
+      <h2>24/7</h2>
+
+      <p>Customer Support</p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="section">
+
+  <div class="section-title">
+
+    <h2>Why Choose Us</h2>
+
+    <p>
+      Experience premium fashion and customer satisfaction.
+    </p>
+
+  </div>
+
+  <div class="features-grid">
+
+    <div class="feature-card">
+
+      <i class="fa-solid fa-shirt"></i>
+
+      <h3>Premium Fashion</h3>
+
+      <p>
+        Explore premium modern fashion collections inspired by latest trends.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fa-solid fa-truck-fast"></i>
+
+      <h3>Fast Delivery</h3>
+
+      <p>
+        Quick and secure delivery services across India.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fa-solid fa-rotate-left"></i>
+
+      <h3>Easy Returns</h3>
+
+      <p>
+        Hassle-free returns and exchange process for every order.
+      </p>
+
+    </div>
+
+    <div class="feature-card">
+
+      <i class="fa-solid fa-lock"></i>
+
+      <h3>Secure Payments</h3>
+
+      <p>
+        Multiple secure payment options with advanced protection.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FAQ -->
+
+<section class="section">
+
+  <div class="section-title">
+
+    <h2>Frequently Asked Questions</h2>
+
+    <p>
+      Find answers to common customer questions.
+    </p>
+
+  </div>
+
+  <div class="faq-container">
+
+    <div class="faq">
+
+      <div class="faq-question">
+
+        How long does delivery take?
+
+        <i class="fa-solid fa-plus"></i>
+
+      </div>
+
+      <div class="faq-answer">
+
+        Orders are usually delivered within 2-5 business days depending on your location.
+
+      </div>
+
+    </div>
+
+    <div class="faq">
+
+      <div class="faq-question">
+
+        Can I return products?
+
+        <i class="fa-solid fa-plus"></i>
+
+      </div>
+
+      <div class="faq-answer">
+
+        Yes, we provide an easy 7-day return and exchange policy.
+
+      </div>
+
+    </div>
+
+    <div class="faq">
+
+      <div class="faq-question">
+
+        Are payments secure?
+
+        <i class="fa-solid fa-plus"></i>
+
+      </div>
+
+      <div class="faq-answer">
+
+        Absolutely. All payments are protected with secure encrypted systems.
+
+      </div>
+
+    </div>
+
+    <div class="faq">
+
+      <div class="faq-question">
+
+        Do you offer international shipping?
+
+        <i class="fa-solid fa-plus"></i>
+
+      </div>
+
+      <div class="faq-answer">
+
+        Yes, international delivery is available in selected countries.
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FEEDBACK + CONTACT -->
+
+<section class="section">
+
+  <div class="feedback-wrapper">
+
+    <!-- FEEDBACK -->
+
+    <div class="feedback-box">
+
+      <h3>Send Feedback</h3>
+
+      <p>
+        We value your feedback. Share your experience and suggestions with us.
+      </p>
+
+      <form class="feedback-form">
+
+        <input type="text" placeholder="Your Name" required>
+
+        <input type="email" placeholder="Your Email" required>
+
+        <textarea placeholder="Write your feedback..." required></textarea>
+
+        <button type="submit">
+          Submit Feedback
+        </button>
+
+      </form>
+
+    </div>
+
+    <!-- CONTACT -->
+
+    <div class="feedback-box">
+
+      <h3>Contact Us</h3>
+
+      <p>
+        Reach out to our support team anytime for assistance.
+      </p>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+
+          <i class="fa-solid fa-phone"></i>
+
+          <h3>Phone</h3>
+
+          <p>
+            +91 98765 43210
+          </p>
+
+        </div>
+
+        <div class="contact-card">
+
+          <i class="fa-solid fa-envelope"></i>
+
+          <h3>Email</h3>
+
+          <p>
+            support@hmfashion.com
+          </p>
+
+        </div>
+
+        <div class="contact-card">
+
+          <i class="fa-solid fa-location-dot"></i>
+
+          <h3>Location</h3>
+
+          <p>
+            Ahmedabad, Gujarat, India
+          </p>
+
+        </div>
+
+        <div class="contact-card">
+
+          <i class="fa-solid fa-clock"></i>
+
+          <h3>Working Hours</h3>
+
+          <p>
+            Mon - Sat : 9 AM - 8 PM
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>H&M Fashion Store</h2>
+
+  <p>
+    Discover premium collections for men, women, kids, sportswear and accessories
+    inspired by modern global fashion trends.
+  </p>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+const faqs = document.querySelectorAll(".faq");
+
+faqs.forEach(faq => {
+
+  faq.addEventListener("click", ()=>{
+
+    faq.classList.toggle("active");
+
+  });
+
+});
+
+</script>
+
+</body>
+
+</html>
