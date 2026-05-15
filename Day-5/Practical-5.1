@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shopping Cart</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Inter',sans-serif;
+}
+
+body{
+background:#f5f5f5;
+}
+
+.cart{
+padding:70px 8%;
+}
+
+.cart h1{
+font-size:48px;
+margin-bottom:40px;
+}
+
+.cart-wrapper{
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:40px;
+}
+
+.cart-items{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.cart-card{
+background:#fff;
+padding:20px;
+border-radius:18px;
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.cart-card img{
+width:180px;
+height:220px;
+object-fit:cover;
+border-radius:15px;
+}
+
+.cart-info h2{
+margin-bottom:12px;
+}
+
+.cart-info p{
+color:#666;
+line-height:1.7;
+margin-bottom:15px;
+}
+
+.price{
+font-size:28px;
+font-weight:700;
+margin-bottom:15px;
+}
+
+.quantity{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.quantity button{
+width:35px;
+height:35px;
+border:none;
+background:#111;
+color:#fff;
+border-radius:50%;
+cursor:pointer;
+}
+
+.summary{
+background:#fff;
+padding:35px;
+border-radius:18px;
+height:fit-content;
+}
+
+.summary h2{
+margin-bottom:30px;
+}
+
+.summary-row{
+display:flex;
+justify-content:space-between;
+margin-bottom:20px;
+}
+
+.checkout-btn{
+width:100%;
+padding:16px;
+background:#111;
+color:#fff;
+border:none;
+border-radius:10px;
+font-weight:700;
+cursor:pointer;
+margin-top:25px;
+}
+
+@media(max-width:900px){
+
+.cart-wrapper{
+grid-template-columns:1fr;
+}
+
+.cart-card{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.cart-card img{
+width:100%;
+height:300px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="cart">
+
+<h1>Shopping Cart</h1>
+
+<div class="cart-wrapper">
+
+<div class="cart-items">
+
+<div class="cart-card">
+
+<img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200">
+
+<div class="cart-info">
+
+<h2>Elegant Black Dress</h2>
+
+<p>Premium elegant black dress for modern fashion styling.</p>
+
+<div class="price">₹2,499</div>
+
+<div class="quantity">
+
+<button>-</button>
+
+<span>1</span>
+
+<button>+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="cart-card">
+
+<img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200">
+
+<div class="cart-info">
+
+<h2>Luxury Handbag</h2>
+
+<p>Luxury handbag crafted with premium aesthetics.</p>
+
+<div class="price">₹3,499</div>
+
+<div class="quantity">
+
+<button>-</button>
+
+<span>1</span>
+
+<button>+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="summary">
+
+<h2>Order Summary</h2>
+
+<div class="summary-row">
+
+<span>Subtotal</span>
+
+<span>₹5,998</span>
+
+</div>
+
+<div class="summary-row">
+
+<span>Shipping</span>
+
+<span>FREE</span>
+
+</div>
+
+<div class="summary-row">
+
+<strong>Total</strong>
+
+<strong>₹5,998</strong>
+
+</div>
+
+<button class="checkout-btn">
+Proceed To Checkout
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+</html>
