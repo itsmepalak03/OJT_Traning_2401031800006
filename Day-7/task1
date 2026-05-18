@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>H&M Fashion Categories</title>
+
+  <!-- GOOGLE FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- BOOTSTRAP -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Inter',sans-serif;
+    }
+
+    body{
+      background:#f5f5f5;
+      overflow-x:hidden;
+    }
+
+    /* HEADER */
+
+    header{
+      width:100%;
+      background:#fff;
+      border-bottom:1px solid #e9e9e9;
+      position:sticky;
+      top:0;
+      z-index:999;
+    }
+
+    .navbar-custom{
+      min-height:85px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:0 40px;
+    }
+
+    .logo img{
+      width:75px;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:25px;
+      list-style:none;
+      margin-bottom:0;
+      padding-left:0;
+    }
+
+    .nav-links a{
+      text-decoration:none;
+      color:#444;
+      font-size:14px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#000;
+    }
+
+    .nav-links a.active{
+      color:#000;
+      border-bottom:2px solid #000;
+      padding-bottom:5px;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:100px 0 60px;
+      background:linear-gradient(to right,#ffffff,#f1f1f1);
+    }
+
+    .hero-content h1{
+      font-size:64px;
+      font-weight:800;
+      color:#111;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      color:#666;
+      font-size:18px;
+      line-height:1.8;
+      margin-bottom:30px;
+    }
+
+    .hero-btn{
+      padding:14px 28px;
+      background:#111;
+      color:#fff;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .hero-btn:hover{
+      background:#333;
+    }
+
+    .hero-image img{
+      width:100%;
+      border-radius:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.12);
+    }
+
+    /* SECTION TITLE */
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:48px;
+      font-weight:800;
+      margin-bottom:15px;
+      color:#111;
+    }
+
+    .section-title p{
+      color:#666;
+      font-size:16px;
+    }
+
+    /* CATEGORY CARDS */
+
+    .categories{
+      padding:90px 0;
+    }
+
+    .category-card{
+      background:#fff;
+      border-radius:24px;
+      padding:30px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.06);
+      transition:0.4s;
+      height:100%;
+    }
+
+    .category-card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 18px 40px rgba(0,0,0,0.12);
+    }
+
+    .category-icon{
+      width:75px;
+      height:75px;
+      border-radius:20px;
+      background:#111;
+      color:#fff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:30px;
+      margin-bottom:25px;
+    }
+
+    .category-card h3{
+      font-size:26px;
+      font-weight:700;
+      margin-bottom:15px;
+    }
+
+    .category-card p{
+      color:#666;
+      font-size:14px;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    .details{
+      margin-bottom:20px;
+    }
+
+    .details span{
+      display:block;
+      margin-bottom:10px;
+      font-size:14px;
+      color:#444;
+    }
+
+    .price{
+      font-weight:700;
+      color:#000;
+    }
+
+    .status{
+      display:inline-block;
+      padding:8px 18px;
+      border-radius:30px;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .available{
+      background:#d8f8df;
+      color:#11823b;
+    }
+
+    .limited{
+      background:#fff1cc;
+      color:#b17b00;
+    }
+
+    .sale{
+      background:#ffd9d9;
+      color:#c40000;
+    }
+
+    .shop-btn{
+      display:inline-block;
+      margin-top:20px;
+      padding:12px 24px;
+      border-radius:12px;
+      background:#111;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .shop-btn:hover{
+      background:#333;
+    }
+
+    /* TABLE SECTION */
+
+    .table-section{
+      padding-bottom:90px;
+    }
+
+    .table-wrapper{
+      background:#fff;
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .table{
+      margin-bottom:0;
+    }
+
+    .table thead{
+      background:#111;
+      color:#fff;
+    }
+
+    .table th{
+      padding:22px;
+      font-size:15px;
+      border:none;
+    }
+
+    .table td{
+      padding:20px;
+      vertical-align:middle;
+      border-color:#eee;
+      font-size:14px;
+      color:#444;
+    }
+
+    .table tbody tr:hover{
+      background:#f9f9f9;
+    }
+
+    .table-img{
+      width:60px;
+      height:60px;
+      border-radius:12px;
+      object-fit:cover;
+    }
+
+    /* STATS */
+
+    .stats{
+      padding:80px 0;
+      background:#111;
+      color:#fff;
+    }
+
+    .stat-box{
+      text-align:center;
+    }
+
+    .stat-box h2{
+      font-size:48px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+
+    .stat-box p{
+      color:#ccc;
+      font-size:15px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#000;
+      color:#fff;
+      text-align:center;
+      padding:25px;
+      font-size:15px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:992px){
+
+      .navbar-custom{
+        flex-direction:column;
+        padding:20px;
+        gap:20px;
+      }
+
+      .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero-content{
+        text-align:center;
+        margin-bottom:40px;
+      }
+
+      .hero-content h1{
+        font-size:48px;
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      .hero-content h1{
+        font-size:38px;
+      }
+
+      .section-title h2{
+        font-size:36px;
+      }
+
+      .category-card{
+        padding:24px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="container-fluid">
+
+      <div class="navbar-custom">
+
+        <div class="logo">
+
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/5/53/H%26M-Logo.svg"
+            alt="H&M Logo">
+
+        </div>
+
+        <ul class="nav-links">
+
+          <li><a href="index.html">HOME</a></li>
+
+          <li><a href="mens.html">MEN</a></li>
+
+          <li><a href="ladies.html">LADIES</a></li>
+
+          <li><a href="kids.html">KIDS</a></li>
+
+          <li><a href="sports.html">SPORT</a></li>
+
+          <li><a href="accessories.html">ACESSORIES</a></li>
+
+          <li><a href="aboutus.html">ABOUT</a></li>
+
+          <li><a href="category.html" class="active">CATEGORY</a></li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+          <div class="hero-content">
+
+            <h1>Explore Fashion Categories</h1>
+
+            <p>
+              Discover premium collections from H&M including men's wear,
+              ladies fashion, sportswear, accessories and more with modern
+              trends and stylish designs.
+            </p>
+
+            <a href="#categories" class="hero-btn">
+              Explore Collection
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <div class="hero-image">
+
+            <img
+              src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200&auto=format&fit=crop"
+              alt="Fashion">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CATEGORY CARDS -->
+
+  <section class="categories" id="categories">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-12">
+
+          <div class="section-title">
+
+            <h2>Top Categories</h2>
+
+            <p>
+              Browse trending categories with stylish collections.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BOOTSTRAP GRID -->
+
+      <div class="row g-4">
+
+        <!-- CARD 1 -->
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="category-card">
+
+            <div class="category-icon">
+              <i class="fa-solid fa-user-tie"></i>
+            </div>
+
+            <h3>Men Fashion</h3>
+
+            <p>
+              Premium men's collection with modern outfits and stylish looks.
+            </p>
+
+            <div class="details">
+
+              <span><strong>Collection:</strong> Summer 2026</span>
+
+              <span><strong>Products:</strong> T-Shirts, Jeans, Jackets</span>
+
+              <span><strong>Brands:</strong> H&M Premium</span>
+
+              <span class="price">₹999 - ₹4999</span>
+
+            </div>
+
+            <span class="status available">Available</span>
+
+            <br>
+
+            <a href="mens.html" class="shop-btn">
+              Explore More
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- CARD 2 -->
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="category-card">
+
+            <div class="category-icon">
+              <i class="fa-solid fa-person-dress"></i>
+            </div>
+
+            <h3>Ladies Fashion</h3>
+
+            <p>
+              Stylish dresses, tops and fashion collections for modern women.
+            </p>
+
+            <div class="details">
+
+              <span><strong>Collection:</strong> Premium Collection</span>
+
+              <span><strong>Products:</strong> Dresses, Tops, Skirts</span>
+
+              <span><strong>Brands:</strong> H&M Luxury</span>
+
+              <span class="price">₹1299 - ₹6999</span>
+
+            </div>
+
+            <span class="status available">Available</span>
+
+            <br>
+
+            <a href="ladies.html" class="shop-btn">
+              Explore More
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="col-12 col-md-6 col-lg-4">
+
+          <div class="category-card">
+
+            <div class="category-icon">
+              <i class="fa-solid fa-dumbbell"></i>
+            </div>
+
+            <h3>Sports Wear</h3>
+
+            <p>
+              Active sportswear and gym collections with premium comfort.
+            </p>
+
+            <div class="details">
+
+              <span><strong>Collection:</strong> Sport Active</span>
+
+              <span><strong>Products:</strong> Gym Wear, Shoes</span>
+
+              <span><strong>Brands:</strong> H&M Active</span>
+
+              <span class="price">₹1499 - ₹5999</span>
+
+            </div>
+
+            <span class="status limited">Limited</span>
+
+            <br>
+
+            <a href="sports.html" class="shop-btn">
+              Explore More
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TABLE SECTION -->
+
+  <section class="table-section">
+
+    <div class="container">
+
+      <div class="row justify-content-center">
+
+        <div class="col-lg-12">
+
+          <div class="section-title">
+
+            <h2>Category Details</h2>
+
+            <p>
+              Detailed information about all fashion collections.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- BOOTSTRAP TABLE GRID -->
+
+      <div class="row justify-content-center">
+
+        <div class="col-12">
+
+          <div class="table-responsive table-wrapper">
+
+            <table class="table align-middle">
+
+              <thead>
+
+                <tr>
+
+                  <th>Image</th>
+                  <th>Category</th>
+                  <th>Products</th>
+                  <th>Collection</th>
+                  <th>Price</th>
+                  <th>Status</th>
+
+                </tr>
+
+              </thead>
+
+              <tbody>
+
+                <tr>
+
+                  <td>
+                    <img
+                      src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=300&auto=format&fit=crop"
+                      class="table-img">
+                  </td>
+
+                  <td>Men Fashion</td>
+
+                  <td>T-Shirts, Jeans, Jackets</td>
+
+                  <td>Summer 2026</td>
+
+                  <td>₹999 - ₹4999</td>
+
+                  <td>
+                    <span class="status available">Available</span>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td>
+                    <img
+                      src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=300&auto=format&fit=crop"
+                      class="table-img">
+                  </td>
+
+                  <td>Ladies Fashion</td>
+
+                  <td>Dresses, Tops, Skirts</td>
+
+                  <td>Luxury Fashion</td>
+
+                  <td>₹1299 - ₹6999</td>
+
+                  <td>
+                    <span class="status available">Available</span>
+                  </td>
+
+                </tr>
+
+                <tr>
+
+                  <td>
+                    <img
+                      src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=300&auto=format&fit=crop"
+                      class="table-img">
+                  </td>
+
+                  <td>Sports Wear</td>
+
+                  <td>Gym Wear, Shoes</td>
+
+                  <td>Sport Active</td>
+
+                  <td>₹1499 - ₹5999</td>
+
+                  <td>
+                    <span class="status limited">Limited</span>
+                  </td>
+
+                </tr>
+
+              </tbody>
+
+            </table>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- STATS -->
+
+  <section class="stats">
+
+    <div class="container">
+
+      <div class="row g-4">
+
+        <div class="col-6 col-md-3">
+
+          <div class="stat-box">
+
+            <h2>250+</h2>
+
+            <p>Fashion Products</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-6 col-md-3">
+
+          <div class="stat-box">
+
+            <h2>40K+</h2>
+
+            <p>Happy Customers</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-6 col-md-3">
+
+          <div class="stat-box">
+
+            <h2>120+</h2>
+
+            <p>Premium Brands</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-6 col-md-3">
+
+          <div class="stat-box">
+
+            <h2>24/7</h2>
+
+            <p>Customer Support</p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 H&M Fashion Clone | All Rights Reserved
+
+  </footer>
+
+  <!-- BOOTSTRAP JS -->
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
