@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Remove Table Row using jQuery</title>
+
+  <!-- jQuery CDN -->
+  <script
+    src="https://code.jquery.com/jquery-4.0.0.slim.js"
+    integrity="sha256-M+GjhMBfXikM1izMplICCTscIj5hzPCp6uDzaypxtgg="
+    crossorigin="anonymous">
+  </script>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .table-container{
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    table{
+      border-collapse: collapse;
+      width: 500px;
+    }
+
+    th, td{
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+
+    th{
+      background: #007bff;
+      color: white;
+    }
+
+    button{
+      background: red;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover{
+      background: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Palak</td>
+          <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>Rahul</td>
+          <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td>Priya</td>
+          <td><button class="deleteBtn">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    $(document).ready(function(){
+
+      $(".deleteBtn").click(function(){
+        $(this).closest("tr").remove();
+      });
+
+    });
+  </script>
+
+</body>`
+</html>
