@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>Simple jQuery Example</title>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <style>
+
+    body{
+      font-family:Arial;
+      text-align:center;
+      padding:50px;
+      background:#f4f4f4;
+    }
+
+    .box{
+      background:white;
+      padding:20px;
+      border-radius:10px;
+      width:400px;
+      margin:auto;
+      box-shadow:0 0 10px rgba(0,0,0,0.1);
+    }
+
+    button{
+      padding:10px 20px;
+      margin:10px;
+      border:none;
+      background:black;
+      color:white;
+      border-radius:5px;
+      cursor:pointer;
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <div class="box">
+
+    <h2 id="text">
+      Hello jQuery
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente rem voluptatibus suscipit minus qui doloribus atque dolore nulla earum voluptates? Natus eligendi amet exercitationem optio consequatur repellendus alias vero tenetur!
+    </h2>
+
+    <button id="hideBtn">
+      Hide
+    </button>
+
+    <button id="toggleBtn">
+      Toggle
+    </button>
+
+    <button id="clickBtn">
+      Click Me
+    </button>
+
+  </div>
+
+  <script >
+
+    // Hide
+    $("#hideBtn").click(function(){
+
+      $("#text").hide();
+
+    });
+
+    // Toggle
+    $("#toggleBtn").click(function(){
+
+      $("#text").toggle();
+
+    });
+
+    // Click Me
+    $("#clickBtn").click(function(){
+
+      alert("Button Clicked!");
+
+    });
+
+  </script>
+
+</body>
+
+</html>

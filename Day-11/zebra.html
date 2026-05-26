@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zebra Stripe Table Using jQuery</title>
+
+  <!-- jQuery CDN -->
+  <script src="https://code.jquery.com/jquery-4.0.0.slim.js"
+    integrity="sha256-M+GjhMBfXikM1izMplICCTscIj5hzPCp6uDzaypxtgg="
+    crossorigin="anonymous"></script>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #dbeafe, #f0f9ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .table-container {
+      width: 90%;
+      max-width: 800px;
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #1e3a8a;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    th {
+      background: #2563eb;
+      color: white;
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    td {
+      padding: 14px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    tr {
+      transition: 0.3s;
+    }
+
+    tr:hover {
+      background: #bfdbfe !important;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="table-container">
+
+    <h1>Zebra Stripe Table Effect</h1>
+
+    <table id="studentTable">
+
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+      </tr>
+
+      <tr>
+        <td>101</td>
+        <td>Palak</td>
+        <td>MERN Stack</td>
+      </tr>
+
+      <tr>
+        <td>102</td>
+        <td>Rahul</td>
+        <td>React JS</td>
+      </tr>
+
+      <tr>
+        <td>103</td>
+        <td>Priya</td>
+        <td>Node JS</td>
+      </tr>
+
+      <tr>
+        <td>104</td>
+        <td>Aman</td>
+        <td>MongoDB</td>
+      </tr>
+
+      <tr>
+        <td>105</td>
+        <td>Neha</td>
+        <td>jQuery</td>
+      </tr>
+
+    </table>
+
+  </div>
+
+  <script>
+
+    $(document).ready(function () {
+
+      // Even rows
+      $("#studentTable tr:even").css("background", "#dbeafe");
+
+      // Odd rows
+      $("#studentTable tr:odd").css("background", "#eff6ff");
+
+      // Header color fix
+      $("#studentTable tr:first").css({
+        "background": "#2563eb",
+        "color": "white"
+      });
+
+    });
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Flexbox Layout with Tailwind CSS</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-6">
+
+  <!-- Main Container -->
+  <div class="max-w-6xl w-full">
+
+    <!-- Heading -->
+    <h1 class="text-4xl font-bold text-center text-blue-700 mb-10">
+      Flexbox Layout Using Tailwind CSS
+    </h1>
+
+    <!-- Flex Container -->
+    <div class="flex flex-col md:flex-row gap-6">
+
+      <!-- Card 1 -->
+      <div
+        class="flex-1 bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition duration-300">
+
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+          alt="Web Design"
+          class="rounded-xl mb-4 h-52 w-full object-cover">
+
+        <h2 class="text-2xl font-semibold text-blue-600 mb-3">
+          Web Design
+        </h2>
+
+        <p class="text-gray-600">
+          Create modern and responsive website layouts easily using Tailwind CSS
+          Flexbox utilities.
+        </p>
+
+      </div>
+
+      <!-- Card 2 -->
+      <div
+        class="flex-1 bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition duration-300">
+
+        <img
+          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop"
+          alt="Development"
+          class="rounded-xl mb-4 h-52 w-full object-cover">
+
+        <h2 class="text-2xl font-semibold text-green-600 mb-3">
+          Development
+        </h2>
+
+        <p class="text-gray-600">
+          Use flex-row, flex-col, justify-center, and items-center to build
+          flexible layouts.
+        </p>
+
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="flex-1 bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition duration-300">
+
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop"
+          alt="Team Work"
+          class="rounded-xl mb-4 h-52 w-full object-cover">
+
+        <h2 class="text-2xl font-semibold text-purple-600 mb-3">
+          Team Work
+        </h2>
+
+        <p class="text-gray-600">
+          Tailwind CSS makes responsive Flexbox layouts simple, clean, and fast
+          to develop.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>
