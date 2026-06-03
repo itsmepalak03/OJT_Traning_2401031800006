@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  background-color: #7d0000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.navbar {
+  background-color: #333;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.navbar li {
+  color: white;
+  padding: 15px 20px;
+  cursor: pointer;
+}
+
+.navbar li:hover {
+  background-color: #555;
+}
+
+.content {
+  text-align: center;
+  padding: 40px;
+}
+
+.content h2 {
+  margin-bottom: 15px;
+}
+
+.content p {
+  margin-bottom: 20px;
+}
+
+.content button {
+  background-color: #7d0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.content button:hover {
+  background-color: #a30000;
+}
+
+.footer {
+  background-color: #7d0000;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
+index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './App.css';
+import App from './App';
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root')
+);
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
