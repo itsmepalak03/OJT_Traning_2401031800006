@@ -1,2 +1,14 @@
-node_modules/
-.env
+{
+  "name": "mongodb-billing-system",
+  "version": "1.0.0",
+  "description": "MongoDB Billing System Database Creation",
+  "main": "createDatabase.js",
+  "scripts": {
+    "start": "node createDatabase.js"
+  },
+  "author": "Palak Joshi",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^6.17.0"
+  }
+}
